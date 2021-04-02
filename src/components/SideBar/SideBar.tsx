@@ -1,17 +1,28 @@
 import React,{ FC } from 'react';
 import { Wrapper } from './styled';
-import { Home,Person,ContactMail } from '@material-ui/icons';
+import { GraphicEq } from '@material-ui/icons';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { Link } from "react-router-dom"
+
+
+// Or Create your Own theme:
+const theme = createMuiTheme({
+  palette: {
+    secondary: {
+      main: "#ffa600"
+    }
+  }
+});
+
 
 const SideBar:FC = () => {
     return (
         <Wrapper>
-            <Home color="primary"/>
-            <Home color="primary"/>
-            <Home color="primary"/>
-            <Person color="primary"/>
-            <ContactMail color="primary"/>
+            <MuiThemeProvider theme={theme}>
+                <Link to="/daily"><GraphicEq color="secondary"/></Link>
+            </MuiThemeProvider>
         </Wrapper>
     )
 }
 
-export default SideBar
+export default SideBar;

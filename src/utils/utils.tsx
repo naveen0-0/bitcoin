@@ -1,0 +1,22 @@
+export const allTheSlugs:Array<string> = [
+    "bitcoin",
+    "ethereum",
+    "binance-coin",
+    "tether",
+    "cardano",
+    "polkadot",
+    "xrp",
+    "uniswap",
+    "litecoin",
+    "theta-token",
+    "chainlink",
+    "usd-coin",
+    "bitcoin-cash",
+    "filecoin",
+    "wrapped-bitcoin",
+    "terra",
+    "stellar",
+    "dogecoin",
+    "vechain",
+    "solana"
+]

@@ -7,9 +7,9 @@ import {Link} from 'react-router-dom'
 const NavBar:FC = () => {
     return (
         <Wrapper>
-            <Navtitle>Crypto</Navtitle>
+            <Link to="/" style={{textDecoration:"none"}}><Navtitle>Crypto</Navtitle></Link>
             {/* <SearchComponent type="text" placeholder="Search for a Crypto" style={{ backgroundColor:"#364547"}}/> */}
-            <Link to="/news"><Button color="primary" size="small" variant="contained">News</Button></Link>
+            <Link to="/news" style={{textDecoration:"none"}}><Button color="primary" size="small" variant="contained">News</Button></Link>
         </Wrapper>
     )
 }
