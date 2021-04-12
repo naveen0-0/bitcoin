@@ -9,6 +9,7 @@ import FullCrypto from './components/FullCrypto/FullCrypto';
 import NewsContainer from './components/NewsContainer/NewsContainer';
 import AllTheSlugs from './components/allSlugs/allSlugs';
 
+
 const App:FC = () => {
     return (
         <Router>

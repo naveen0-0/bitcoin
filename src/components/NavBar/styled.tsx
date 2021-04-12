@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
     align-items:center;
     background-color:#292828;
     padding:10px;
-    box-shadow:3px 3px 10px #cecece;
 `;
 
 export const Navtitle = styled.div`

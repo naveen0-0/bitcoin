@@ -44,6 +44,7 @@ const MainSection:FC = () => {
         </ErrorComponent>
     </Wrapper>
 
+
     return (
         <Wrapper>
             <Head>Popular Crypto</Head>
@@ -54,4 +55,5 @@ const MainSection:FC = () => {
     )
 }
 
-export default MainSection
+export default MainSection;
+

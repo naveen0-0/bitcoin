@@ -30,19 +30,22 @@ color:black;
 
 export const Title = styled.div`
 text-align:center;
-font-size:1.8rem;
-font-family:"Calibri";
+font-size:1.5rem;
+font-family:"Hack Regular";
 color:#0071a5;
 padding:10px;
 font-weight:bold;
+word-break: break-all;
 `;
 
 
 export const Description = styled.div`
 text-align:center;
-font-size:1.3rem;
-font-family:"Calibri";
+font-size:1rem;
+font-family:"Hack Regular";
 padding:10px;
+color:whitesmoke;
+word-break: break-all;
 `;
 
 export const Author = styled.div`
@@ -50,20 +53,25 @@ text-align:right;
 font-size:1rem;
 font-weight:bold;
 padding:10px 20px 0px 20px;
+font-family:"Hack Regular";
+color:orange;
 `;
 
 export const PublishedAt = styled.div`
 text-align:right;
 font-size:0.8rem;
 font-weight:bold;
-padding:10px 20px 0px 20px
+padding:10px 20px 0px 20px;
+font-family:"Hack Regular";
+color:orange;
 `;
 
 
 export const Loading = styled.div`
-background-color:#d6d6d6;
+background-color:#242020;
 padding:10px;
 text-align:center;
-font-size:2rem;
-font-family:"Fira Code"
+font-size:1.2rem;
+font-family:"Fira Code";
+color:whitesmoke
 `;

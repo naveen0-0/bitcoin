@@ -18,14 +18,13 @@ import Paper from "@material-ui/core/Paper";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
-      flexGrow: 1
-    },
     paper: {
       minHeight: 200,
-      width: "90vw",
+      width: "80vw",
       margin: "auto",
-      backgroundColor:"#d6d6d6"
+      backgroundColor:"#272525",
+      fontFamily:'Lato',
+      padding:20,
     },
     control: {
       padding: theme.spacing(2)
@@ -86,13 +85,13 @@ const News = ({slug}) => {
       if(news === null ) return <Loading>No news about it Today</Loading>
 
         return (
-            <Grid container justify="center" spacing={2} className={classes.gridC}>
+            <Grid container justify="center" spacing={2}>
                 {news.map((article:NewsType,value:number) => (
                     <Grid key={value} item>
                         <Paper className={classes.paper}>
                             <URL href={article.url} target="_blank">
                                 <Title>{article.title}</Title>
-                                <Description>{article.content.substring(0,100)}....</Description>
+                                <Description>{article.content.substring(0,50)}....</Description>
                                 <Author>{article.author.name}</Author>
                                 <PublishedAt>{new Date(article.published_at).toLocaleDateString()}</PublishedAt>
                             </URL>
@@ -103,4 +102,4 @@ const News = ({slug}) => {
         );
 }
 
-export default News
+export default News;

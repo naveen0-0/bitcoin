@@ -1,10 +1,13 @@
 import React,{ FC, useEffect,useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import Axios from 'axios';
-import { Wrapper,Loading,ErrorComponent,ErrorText} from './styled';
-import { Error } from '@material-ui/icons'
-import { LinearProgress } from '@material-ui/core'
-
+import { 
+    Wrapper,Loading,ErrorComponent,ErrorText, Head,SubHead,Details,Summary,SummaryDescription,Link,LinksContainer,RoadMapBox,RoadMapBoxTitle,RoadMapBoxDetails,RoadMapBoxTime
+ } from './styled';
+import { Error } from '@material-ui/icons';
+import { LinearProgress } from '@material-ui/core';
+import ReactMD from 'react-markdown';
+import gfm from 'remark-gfm';
 
 interface FullCryptoProps extends RouteComponentProps<{cryptoslug:string}>{}
 
@@ -31,13 +34,7 @@ const FullCrypto:FC<FullCryptoProps> = ({match}) => {
                       }
                 })
         };
-
-        // if(!error){
-            // setInterval(()=>{
-                loadData();
-            // },2000)
-        // }
-    
+        loadData();
         return () => {
           source.cancel();
         };
@@ -54,10 +51,37 @@ const FullCrypto:FC<FullCryptoProps> = ({match}) => {
 
 
     return (
-        <div>
-            Fullcrypto
-        </div>
+        <Wrapper>
+            <Head>{crypto.name} ({crypto.symbol})</Head>
+            <SubHead>{crypto.id}</SubHead>
+
+            <LinksContainer>
+            {crypto.profile.general.overview.official_links.map((linkObj:any,index:number)=><Link href={linkObj.link} key={index} target="_blank">{linkObj.name}</Link>)}
+            </LinksContainer>
+
+            <Details>
+                <Summary>Background</Summary>
+                <SummaryDescription> <ReactMD plugins={[gfm]} children={crypto.profile.general.background.background_details}/></SummaryDescription>
+            </Details>
+
+            <Details>
+                <Summary>Overview</Summary>
+                <SummaryDescription> <ReactMD plugins={[gfm]} children={crypto.profile.general.overview.project_details}/></SummaryDescription>
+            </Details>
+
+            <Details>
+                <Summary>Roadmap</Summary>
+                <SummaryDescription> 
+                    {crypto.profile.general.roadmap.map((roadmapbox:any,index:number) => <RoadMapBox key={index}>
+                        <RoadMapBoxTitle>{roadmapbox.title}</RoadMapBoxTitle>
+                        <RoadMapBoxDetails>{roadmapbox.details}</RoadMapBoxDetails>
+                        <RoadMapBoxTime>{roadmapbox.date}</RoadMapBoxTime>
+                    </RoadMapBox>)}
+                </SummaryDescription>
+            </Details>
+
+        </Wrapper>
     )
 }
 
-export default FullCrypto
+export default FullCrypto;

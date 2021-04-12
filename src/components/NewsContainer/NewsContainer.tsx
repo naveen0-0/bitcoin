@@ -44,7 +44,8 @@ function a11yProps(index: any) {
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor:"#444545",
+    minHeight:"100vh",
   },
 }));
 
@@ -55,7 +56,7 @@ export default function SimpleTabs() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="default">
+      <AppBar position="static" color="primary">
         <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
           {allTheSlugs.map((slug,index) => <Tab label={slug} {...a11yProps(index)} key={index}/>)}
         </Tabs>
