@@ -2,7 +2,7 @@ import React,{ FC, useEffect,useState } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import Axios from 'axios';
 import { 
-    Wrapper,Loading,ErrorComponent,ErrorText, Head,Details,Summary,SummaryDescription,Link,LinksContainer,RoadMapBox,RoadMapBoxTitle,RoadMapBoxDetails,RoadMapBoxTime,IndividualContributor,IndividualContributorName,IndividualContributorTitle,IndividualContributorURL,IndividualContributorImage,IndividualContributorDescription,EmptyImage
+    Wrapper,Loading,ErrorComponent,ErrorText, Head,Details,Summary,SummaryDescription,Link,LinksContainer,RoadMapBox,RoadMapBoxTitle,RoadMapBoxDetails,RoadMapBoxTime,IndividualContributor,IndividualContributorName,IndividualContributorTitle,IndividualContributorURL,IndividualContributorImage,IndividualContributorDescription,EmptyImage,Exploit,ExploitDate,ExploitDetails,ExploitTitle,ExploitType
  } from './styled';
 import { Error } from '@material-ui/icons';
 import { LinearProgress } from '@material-ui/core';
@@ -118,7 +118,45 @@ const FullCrypto:FC<FullCryptoProps> = ({match}) => {
                     </Details>
                 </SummaryDescription>
             </Details>
-            
+
+            <Details>
+                <Summary>Governance</Summary>
+                <SummaryDescription> <ReactMD plugins={[gfm]} children={crypto.profile.governance.governance_details}/></SummaryDescription>
+            </Details>
+
+            <Details>
+                <Summary>Technology Overview</Summary>
+                <SummaryDescription> <ReactMD plugins={[gfm]} children={crypto.profile.technology.overview.technology_details}/></SummaryDescription>
+            </Details>
+
+
+            <Details>
+                <Summary>Exploits</Summary>
+                <SummaryDescription>
+                    {crypto.profile.technology.security.known_exploits_and_vulnerabilities.map((exploit:any,index:number) => <Exploit key={index}>
+                        <ExploitTitle>{exploit.title}</ExploitTitle>
+                        <ExploitType>{exploit.type}</ExploitType>
+                        <ExploitDetails>{exploit.details}</ExploitDetails>
+                        <ExploitDate>{new Date(exploit.date).toLocaleDateString()}</ExploitDate>
+                    </Exploit>)}
+                </SummaryDescription>
+            </Details>
+
+            <Details>
+                <Summary>Investors</Summary>
+                <SummaryDescription>
+                    {crypto.profile.investors.organizations.map((investor:any,index:number) => <IndividualContributor key={index}>
+                        <IndividualContributorURL>
+                                    {investor.logo?
+                                    <IndividualContributorImage src={investor.logo} alt="My ProfilePIC"/>
+                                     :<EmptyImage/>}
+                                </IndividualContributorURL>
+                                <IndividualContributorName>{investor.name}</IndividualContributorName>
+                                <IndividualContributorDescription>{investor.description}</IndividualContributorDescription>
+                    </IndividualContributor>)}
+                </SummaryDescription>
+            </Details>
+
 
         </Wrapper>
     )

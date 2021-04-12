@@ -160,3 +160,34 @@ border-radius:50%;
     margin:auto;
 }
 `;
+
+export const Exploit = styled.div`
+background-color:#2e2b2b;
+margin:10px;
+border-radius:5px;
+padding:20px;
+`;
+export const ExploitTitle = styled.div`
+font-size:1.2rem;
+font-weight:bold;
+`;
+
+export const ExploitDate = styled.div`
+text-align:right;
+color:cornflowerblue;
+font-weight:bold;
+font-size:1rem;
+`;
+
+export const ExploitType = styled.div`
+font-weight:bold;
+font-size:0.8rem;
+color:cornflowerblue;
+`;
+
+export const ExploitDetails= styled.div`
+padding:10px;
+font-weight:bold;
+font-size:0.8rem;
+`;
+
