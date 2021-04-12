@@ -38,14 +38,6 @@ font-weight:bold;
 color:orange;
 `;
 
-export const SubHead = styled.div`
-text-align:center;
-padding:10px;
-font-size:1rem;
-font-family:"Hack Regular";
-color:cornflowerblue;
-font-weight:bold;
-`;
 
 export const Details = styled.details`
 width:90%;
@@ -56,6 +48,7 @@ color:#bdbdbd;
 text-decoration:none;
 word-break:break-all;
 padding:20px 0px 0px 0px;
+cursor:pointer;
 `;
 
 export const Summary = styled.summary`
@@ -63,7 +56,7 @@ outline:none;
 font-family:"Hack Regular";
 color:orange;
 font-weight:bold;
-font-size:1.2rem;
+font-size:1rem;
 text-decoration:none;
 `;
 
@@ -96,14 +89,74 @@ font-size:0.8rem
 
 
 export const RoadMapBox = styled.div`
+background-color:#252525;
+margin:10px auto;
+padding:20px;
+border-radius:5px;
 
 `;
 export const RoadMapBoxTitle = styled.div`
-
+font-size:1.2rem;
+font-weight:bold;
 `;
 export const RoadMapBoxDetails = styled.div`
-
+margin:10px auto;
+font-size:.8rem;
+font-weight:bold;
 `;
 export const RoadMapBoxTime = styled.div`
+color:cornflowerblue;
+font-size:.8rem;
+text-align:right;
+font-weight:bold;
+`;
 
+export const IndividualContributor = styled.div`
+background-color:#2e2b2b;
+margin:10px;
+border-radius:5px;
+@media screen and (max-width:500px){
+    text-align:center;
+}
+`;
+export const IndividualContributorURL = styled.div`
+padding:20px;
+`;
+export const IndividualContributorImage = styled.img`
+width:150px;
+height:150px;
+object-fit:cover;
+border-radius:50%;
+@media screen and (max-width:500px){
+    display:block;
+    margin:auto;
+}
+`;
+export const IndividualContributorName = styled.div`
+color:cornflowerblue;
+font-weight:bold;
+padding:10px;
+`;
+export const IndividualContributorTitle = styled.div`
+font-weight:bold;
+padding:10px;
+font-size:0.8rem;
+`;
+
+export const IndividualContributorDescription = styled.div`
+padding:10px;
+font-weight:bold;
+font-size:0.8rem;
+`;
+
+
+export const EmptyImage = styled.div`
+width:150px;
+height:150px;
+background-color:black;
+border-radius:50%;
+@media screen and (max-width:500px){
+    display:block;
+    margin:auto;
+}
 `;
