@@ -1,6 +1,7 @@
-import React,{ FC } from 'react'
-import { Wrapper,InnerWrapper,Name,Price } from './styled'
-import { Link } from 'react-router-dom'
+import React,{ FC, useState } from 'react';
+import { Wrapper,InnerWrapper,Name,Price,DeveloperDetailsContainer,DeveloperDetails,AllTimeHigh,Stars,Watchers,Icon,BigWrapper } from './styled';
+import { Link } from 'react-router-dom';
+import { ArrowDropDownCircle,ArrowDropUpOutlined } from '@material-ui/icons';
 
 interface Props{
     crypto:{
@@ -32,15 +33,29 @@ interface Props{
 }
 
 const Crypto:FC<Props> = ({crypto}) => {
+
+    const [showModal,setShowModal] = useState<boolean | null>(false);
+    
     return (
-        <Wrapper>
-            <Link to={`/crypto/${crypto.slug}`}>
-                <InnerWrapper>
-                    <Name>{crypto.name}</Name>
-                    <Price>${crypto.metrics.market_data.price_usd.toFixed(2)}</Price>
-                </InnerWrapper>
-            </Link>
-        </Wrapper>
+        <BigWrapper>
+            <Wrapper>
+                <Link to={`/crypto/${crypto.slug}`}>
+                    <InnerWrapper>
+                        <Name>{crypto.name}</Name>
+                        <Price>${crypto.metrics.market_data.price_usd.toFixed(2)}</Price>
+                    </InnerWrapper>
+                </Link>
+            </Wrapper>
+
+            <DeveloperDetailsContainer>
+                <Icon>{showModal?<ArrowDropUpOutlined onClick={()=>setShowModal(!showModal)} fontSize="small" color="primary"/>: <ArrowDropDownCircle onClick={()=>setShowModal(!showModal)} fontSize="small" color="primary"/>}</Icon>
+                <DeveloperDetails show={showModal}>
+                    <AllTimeHigh> Highest {crypto.metrics.all_time_high.price.toFixed(2)}$ Reached {crypto.metrics.all_time_high.days_since} days ago.</AllTimeHigh>
+                    <Stars>Github Stars : {crypto.metrics.developer_activity.stars}</Stars>
+                    <Watchers> Github Watchers : {crypto.metrics.developer_activity.watchers}</Watchers>
+                </DeveloperDetails>
+            </DeveloperDetailsContainer>
+        </BigWrapper>
     )
 }
 

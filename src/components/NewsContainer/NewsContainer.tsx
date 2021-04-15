@@ -44,7 +44,7 @@ function a11yProps(index: any) {
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
     flexGrow: 1,
-    backgroundColor:"#444545",
+    backgroundColor:"#454646",
     minHeight:"100vh",
   },
 }));

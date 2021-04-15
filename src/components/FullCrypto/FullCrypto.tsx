@@ -23,7 +23,6 @@ const FullCrypto:FC<FullCryptoProps> = ({match}) => {
         const loadData = () => {
             Axios.get(`https://data.messari.io/api/v2/assets/${match.params.cryptoslug}/profile?as-markdown`, { cancelToken: source.token })
                 .then(response => {
-                    console.log(response.data.data)
                     setCrypto(response.data.data);setError(false);setLoading(false); 
                 })
                 .catch(error => {

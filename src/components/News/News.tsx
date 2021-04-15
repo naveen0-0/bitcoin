@@ -56,7 +56,7 @@ const News = ({slug}) => {
     
         const loadData = () => {
             Axios.get(`https://data.messari.io/api/v1/news/${slug}?as-markdown`, { cancelToken: source.token })
-                .then(response => {console.log(response.data.data); setNews(response.data.data);setError(false);setLoading(false); })
+                .then(response => {setNews(response.data.data);setError(false);setLoading(false); })
                 .catch(error => {
                     if (Axios.isCancel(error)) {
                       } else {
